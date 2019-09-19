@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+
+<head>
+    <title>The weather app</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">The weather app</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Home</a>
+        <a class="p-2 text-dark" href="#">Information</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+    </nav>
+    <a class="btn btn-outline-primary" href="#">Documentation</a>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-5 offset-2">
+            <h1> The weather in your city</h1>
+            <form action="">
+                <label for="city">City </label>
+                <input type="text" id="city" class="form-control" name="city" placeholder="Enter city name">
+                <input type="submit" name="send" value="Find" class="mt-2 btn btn-danger">
+            </form>
+
+        </div>
+
+
+        <div class="col-5 offset-2">
+            <h1>Information</h1>
+
+            {% for info in all_info %}
+
+            <div class="alert alert-info">
+                <div class="row">
+                    <div class="col-9">
+                        <d>City: <d/>{{ info.city }}<br>
+                        <d>Temperature: <d/>{{ info.temp }}<sup>o</sup>
+                    </div>
+                    <div class="col-2 offset-1">
+                        <img src="http://openweathermap.org/img/w/{{ info.icon }}.png" alt="Photo of weather" class="img-thumbnail">
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
